@@ -56,7 +56,4 @@ if player_score > computer_score:
     print("Player Won")
 else:
     print("Computer Won")
-print(history)
 
-# print("Enter the information of the round you need:")
-# n = input()

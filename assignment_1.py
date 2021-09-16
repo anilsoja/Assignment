@@ -1,59 +1,46 @@
-import random
+from random import randint
 
-rounds = 1
 player_score = 0
 computer_score = 0
+choices = {}
+c = {'rock': 0, 'paper': 1, 'scissors': 2}
+d = ['rock', 'paper', 'scissors']
 
-
-def converted_choice(number):
-    if number == 1:
-        return "rock"
-    elif number == 2:
-        return "paper"
-    elif number == 3:
-        return "scissors"
-
-
-while True:
-    random_number = random.randint(1, 3)
-    print("Select rock/paper/scissors:")
-    player_choice = input()
-    computer_choice = converted_choice(random_number)
+for i in range(1, 4):
+    # outcomes = {
+    #     "0": {"0": "0", "1": "1", "2": "-1"},  # 0: tie, 1: computer won, -1: player won
+    #     "1": {"0": "-1", "1": "0", "2": "1"},
+    #     "2": {"0": "1", "1": "-1", "2": "0"}
+    # }
+    outcomes = {0: {0: "Tie", 1: "Computer won", 2: "Player won"}, 1: {0: "Player won", 1: "Tie", 2: "Computer won"},
+                2: {0: "Computer won", 1: "Player won", 2: "Tie"}}
+    player_choice = input("Player Choice:")
+    computer_choice = d[randint(0, 2)]
     print("Computer Choice:", computer_choice)
     print("Player Choice:", player_choice)
-    if player_choice == computer_choice:
-        winner = "both"
-    elif player_choice == "rock":
-        if computer_choice == "scissors":
-            player_score = player_score + 1
-            winner = "player"
-        else:
+    if (c[player_choice] == 0 and c[computer_choice] == 2) or (c[player_choice] == 1 and c[computer_choice] == 0) or (
+            c[player_choice] == 2 and c[computer_choice] == 1):
+        player_score = player_score + 1
+    else:
+        if (c[player_choice] == 0 and c[computer_choice] == 1) or (
+                c[player_choice] == 1 and c[computer_choice] == 2) or (
+                c[player_choice] == 2 and c[computer_choice] == 0):
             computer_score = computer_score + 1
-            winner = "computer"
-    elif player_choice == "paper":
-        if computer_choice == "rock":
-            player_score = player_score + 1
-            winner = "player"
-        else:
-            computer_score = computer_score + 1
-            winner = "computer"
-    elif player_choice == "scissors":
-        if computer_choice == "paper":
-            player_score = player_score + 1
-            winner = "player"
-        else:
-            computer_score = computer_score + 1
-            winner = "computer"
-
-    history = {rounds: [player_choice, computer_choice, winner]}
-    rounds = rounds + 1
-    if rounds > 10:
-        break
-print("\n")
-print("Score of player:", player_score)
-print("Score of Computer:", computer_score)
+    result = outcomes[c[player_choice]][c[computer_choice]]
+    choices[i] = [computer_choice, player_choice, result]
+print(choices)
+print("Player's score:", player_score, "and Computer's points:", computer_score)
 if player_score > computer_score:
-    print("Player Won")
+    print("Player is the winner")
+elif player_score < computer_score:
+    print("Computer is the winner")
 else:
-    print("Computer Won")
+    print("It is a tie")
+print("\n")
+
+x = int(input("Enter the round for which you need the information >>"))
+print("Player's's choice=", (choices[x][0]))
+print("Computer's choice=", (choices[x][1]))
+print(choices[x][2] + " round ", x)
+
 

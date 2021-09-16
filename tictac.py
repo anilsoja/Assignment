@@ -79,9 +79,5 @@ def main():
         # Select the next player
         turn = 1 - turn
 
-    else:
-        display_board()
-        print("It's a tie!")
-
 
 main()

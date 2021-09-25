@@ -85,13 +85,13 @@ while ch != 0:
     ch = (input("Enter the choice:"))
     if ch == '1':
         my_pet.feed()
-        pet.clock_tick()
+
     elif ch == '2':
         my_pet.hi()
-        pet.clock_tick()
+       
     elif ch == '3':
         word = input("Enter the word you would like to teach:")
         my_pet.teach(word)
-        pet.clock_tick()
+       
     else:
         print("Invalid Choice:")

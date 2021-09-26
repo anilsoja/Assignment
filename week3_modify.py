@@ -1,5 +1,7 @@
 from random import randrange
 
+user_pets = []
+
 
 class Pet:
     hunger_threshold = 5
@@ -73,25 +75,38 @@ class Cat(Pet):
         print("Cat class Created")
 
 
-pet_name = input("Enter name of your pet:")
-my_pet = Pet(pet_name)
+def display_user_pets():
+    print("Your Pets")
+    for pet in user_pets:
+        print(f"\n{pet}")
+
 d1 = Dog1()
 d2 = Dog2()
 d3 = Dog3()
 c1 = Cat()
 ch = " "
 while ch != 0:
-    print("1.Feed\n 2.Greet\n 3.Teach")
-    ch = (input("Enter the choice:"))
-    if ch == '1':
-        my_pet.feed()
-
-    elif ch == '2':
-        my_pet.hi()
-       
-    elif ch == '3':
-        word = input("Enter the word you would like to teach:")
-        my_pet.teach(word)
-       
+    display_user_pets()
+    print("\n 1.Adopt\n 2.Feed\n 3.Greet\n 4.Teach")
+    ch = int(input("Enter the choice:"))
+    if ch == 1:
+        print('\nAdopt a new pet!')
+        pet_name = input('Enter the pet name: ')
+        user_pets.append(Pet(pet_name))
+    elif ch in range(2, 5):
+        name = input('Enter pet name to interact: ')
+        p1 = Pet(name)
+        for i in range(len(user_pets)):
+            if user_pets[i] == name:
+                if ch == 2:
+                    p1.feed()
+                    p1.clock_tick()
+                elif ch == 3:
+                    p1.hi()
+                    p1.clock_tick()
+                elif ch == 4:
+                    word = input("Enter the word to learn the pet:")
+                    p1.teach(word)
+                    p1.clock_tick()
     else:
-        print("Invalid Choice:")
+        exit()

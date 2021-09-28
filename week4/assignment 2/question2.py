@@ -10,7 +10,7 @@ cursor.execute("""Create table Departments (Department_id integer , Department_n
 print("Table created")
 
 # b) Insert 5 records into this table.
-values = [(1, 'Finance'), (2, 'Developer'), (3, 'Human-Resources')]
+values = [(1, 'Finance'), (2, 'Developer'), (3, 'Human-Resources'), (4, 'Testing'), (5, 'Support')]
 cursor.executemany("INSERT INTO Departments VALUES (?,?)", values)
 print("Values Inserted")
 
@@ -21,16 +21,20 @@ while d == 'y':
     cursor.execute("SELECT Department_name from Departments where Department_id=:id", {"id": d_id})
     result = cursor.fetchone()
     print(f"\nEmployees Working in {result[0]} are:")
-    cursor.execute("Select E.NAME,E.ID,E.SALARY,E.CITY,E.DEPARTMENT_id,D.Department_name from EMPLOYEE E,Departments D "
-                   "where E.DEPARTMENT_id=:id AND D.Department_id=:id", {"id": d_id})
+    cursor.execute(
+            "Select E.NAME,E.ID,E.SALARY,E.CITY,E.DEPARTMENT_id,D.Department_name from EMPLOYEE E,Departments D "
+            "where E.DEPARTMENT_id=:id AND D.Department_id=:id", {"id": d_id})
     record = cursor.fetchall()
-    for row in record:
-        print("\nName:", row[0])
-        print("ID:", row[1])
-        print("Salary:", row[2])
-        print("City:", row[3])
-        print("Department:", row[4])
-        print("Department:", result[0])
+    if len(record)!= 0:
+        for row in record:
+            print("\nName:", row[0])
+            print("ID:", row[1])
+            print("Salary:", row[2])
+            print("City:", row[3])
+            print("Department:", row[4])
+            print("Department:", result[0])
+    else:
+        print("None")
     d = input("Do you want to Continue Y or N:")
 conn.commit()
 conn.close()

@@ -1,10 +1,7 @@
 import sqlite3
-import configparser
-from sqlalchemy import MetaData
-from sqlalchemy_schemadisplay import create_schema_graph
-
 con = sqlite3.connect("database.sqlite")
 cursor = con.cursor()
+
 # b) Print the names of both the Home Teams and Away Teams in each match played in 2015 and
 #                                                                                   Full time Home Goals (FTHG) = 5
 cursor.execute("SELECT HomeTeam, AwayTeam FROM Matches WHERE Season = 2015 AND FTHG = 5")

@@ -30,6 +30,6 @@ for row in results:
 cursor.execute("SELECT ROUND(AVG(FTHG),2) FROM Matches WHERE HomeTeam = 'Man United'")
 results = cursor.fetchall()
 for row in results:
-    print(" Total goals:", row[0])
+    print(" Total goals are:", row[0])
 con.commit()
 con.close()

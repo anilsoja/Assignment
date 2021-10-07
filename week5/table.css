@@ -1,0 +1,74 @@
+html {
+    box-sizing: border-box;
+  }
+  body {
+    background-color:  #16191b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+.pricing {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 100%;
+    max-width: 900px;
+  }
+  .pricing-plan {
+    flex: 1;
+    background-color: #1f262c;
+    margin: 15px 8px;
+    padding: 30px;
+    border-radius: 8px;
+    color:white;
+  }
+.pricing-plan h2{
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightcoral;
+    letter-spacing: 0.5px;
+}
+.pricing-plan p{
+    font-size: 30px;
+}
+.pricing-plan ul{
+    margin-bottom: 0 0 35px;
+    padding-left: 10px;
+    line-height: 1.8;
+    color: #b5b5b5;
+    list-style: none;
+}
+.pricing-plan ul li::before{
+    content: ">";
+    color: lightcoral;
+    margin-left: -10px;
+    width:20px;
+    font-size: 20px;
+    display: inline-block;
+
+}
+.pricing-plan a{
+    text-decoration: none;
+    color:#fff;
+    padding: 10px,25px;
+    background: #e30046;
+    text-align: center;
+    border: 2px solid #e30046 ;
+    border-radius: 5px;
+    letter-spacing: 0.2px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background-color 200ms ease-in-out;
+}
+.pricing-plan a:hover{
+    background-color: #1f262c;
+}
+
+.pricing-plan:hover{
+background-color:#41515f;
+}
+@media(max-width:768px){
+    .pricing{
+        display: block;
+    }
+}

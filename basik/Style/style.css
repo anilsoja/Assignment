@@ -1,0 +1,92 @@
+body{
+  background-color: rgb(245, 245, 245);
+}
+#mainNavbar .navbar-brand{
+    color:#2196F3;
+
+}
+
+#icon{
+  width: 15;
+  height: 15;
+  fill:none;
+  color:black;
+
+  }
+  
+ #sidebar .span{
+    color : black;
+    font-size: 12px;
+  }
+
+#Subhead{
+    color:grey;
+    font-size: 11px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+#bottom{
+  padding-top:550px;
+
+}
+#bottom .progress{
+height:8px;
+}
+
+#main .subline{
+font-size: 12px;
+display:flex;
+justify-content: space-between;
+padding-top: 5px;
+color:grey;
+
+}
+#main .heading{
+ font-weight: 700;
+  font-size: 14px;
+}
+
+#UPL{
+  font-size: 12px;
+}
+#UPL .span2{
+  color: grey;
+}
+#UPL .span3{
+  font-weight: 500;
+}
+#profile{
+  font-size: 12px;
+}
+
+.progress{
+  height: 8px;
+  background-color:gray;
+}
+ .percent{
+  color: rgb(9, 149, 243);
+}
+.image3{
+  width: 100px;
+  height: 100px;
+  margin-left: 20px;
+}
+.total{
+  align-items: center;
+  font-size: 12px;
+  color:grey;
+  margin-left: 20px;
+}
+.sub{
+  color:grey;
+  font-size: 11px;
+}
+#active{
+  color:grey;
+  font-size: 12px;
+}
+
+
+.base{
+  color: gray;
+}

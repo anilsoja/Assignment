@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace A3
+namespace StringReversal
 {
     class Program
     {
@@ -14,26 +14,26 @@ namespace A3
             int count = 0;
             Console.WriteLine("enter the string");
             string str = Console.ReadLine();
-            char[] array = str.ToCharArray();
+            char[] arr = str.ToCharArray();
             Console.WriteLine("string after reverse ");
-            for (int i = array.Length - 1; i >= 0; i--)
+            for (int i = arr.Length - 1; i >= 0; i--)
             {
-                if (array[i] != ' ')
+                if (arr[i] != ' ')
                 {
                     count++;
                 }
-                else if (array[i] == ' ')
+                else if (arr[i] == ' ')
                 {
                     for (int j = i + 1; count > 0; j++, count--)
                     {
-                        Console.Write(array[j]);
+                        Console.Write(arr[j]);
                     }
                     Console.Write("  ");
                 }
             }
             for (int j = 0; j <= count; j++)
             {
-                Console.Write(array[j]);
+                Console.Write(arr[j]);
             }
             Console.ReadLine();
 
